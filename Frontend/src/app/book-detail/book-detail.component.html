@@ -1,0 +1,18 @@
+<div class="container">
+  <app-loader [isLoading]="isLoading" ></app-loader>
+  <mat-card *ngIf="!isLoading">
+    <h1>
+      <mat-card-title translate><b>Title : </b>{{bookDetail.title}}
+        <p>creation date : {{ bookDetail.creation_date | date: 'yyyy-MM-dd HH:mm'}}</p>
+
+      </mat-card-title>
+    </h1>
+    <mat-card-content>
+      <h4><b>User :</b> {{bookDetail.user}}</h4>
+      <h4><b>ISBN :</b>{{bookDetail.isbn}}</h4>
+      <app-stars [stars]="bookDetail.avg_rating" (stared)="onStared($event)"></app-stars>
+      <app-comments [comments]="bookDetail.comments" [hidden]="!cookieExists"
+                    (comment)="onComment($event)"></app-comments>
+    </mat-card-content>
+  </mat-card>
+</div>

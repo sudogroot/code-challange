@@ -1,0 +1,65 @@
+<div *ngIf="cookieExists">
+  <h1>My activities</h1>
+  <app-loader [isLoading]="commentsLoading"></app-loader>
+<div *ngIf="!commentsLoading">
+  <div *ngIf="!comments.count">
+    u did not commented any book
+  </div>
+
+  <div *ngIf="comments.count">
+    <h1>Comments</h1>
+
+    <div fxLayout="row" fxLayoutWrap="wrap">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="33.3333%" fxFlex="100" *ngFor="let c of comments.results">
+        <mat-card>
+
+          <h1>comment : {{c.content}}</h1>
+          <p>isbn : {{ c.book}}</p>
+          <p>user : {{ c.user}}</p>
+          <p>creation date : {{ c.creation_date | date: 'yyyy-MM-dd HH:mm'}}</p>
+
+          <button mat-raised-button color="primary" (click)="navigate($event,c.book)">Voir</button>
+
+
+        </mat-card>
+      </div>
+
+
+    </div>
+
+    <button mat-raised-button [disabled]="!comments.previous" (click)="getComments(comments.previous)">Privious</button>
+    <button mat-raised-button [disabled]="!comments.next" (click)="getComments(comments.next)">Next</button>
+  </div>
+</div>
+  <app-loader [isLoading]="starsLoading"></app-loader>
+<div *ngIf="!starsLoading">
+  <div *ngIf="!stars.count">
+    u did not stared any book
+  </div>
+
+  <div *ngIf="stars.count">
+    <h1>Stars</h1>
+    <div fxLayout="row" fxLayoutWrap="wrap">
+      <div fxFlex.gt-sm="25" fxFlex.gt-xs="33.3333%" fxFlex="100" *ngFor="let s of stars.results">
+        <mat-card>
+
+          <h1>stars : {{s.stars}}</h1>
+          <p>isbn : {{ s.book}}</p>
+          <p>user : {{ s.user}}</p>
+          <p>creation date : {{ s.creation_date | date: 'yyyy-MM-dd HH:mm'}}</p>
+
+
+          <button mat-raised-button color="primary" (click)="navigate($event,s.book)">Voir</button>
+
+
+        </mat-card>
+      </div>
+
+
+    </div>
+
+    <button mat-raised-button [disabled]="!stars.previous" (click)="getStars(stars.previous)">Privious</button>
+    <button mat-raised-button [disabled]="!stars.next" (click)="getStars(stars.next)">Next</button>
+  </div>
+</div>
+</div>

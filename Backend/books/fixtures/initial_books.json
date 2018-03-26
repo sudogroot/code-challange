@@ -1,0 +1,54 @@
+[
+  {
+    "model": "books.profile",
+    "fields": {
+      "user_name": "wajih"
+    }
+  },
+  {
+    "model": "books.profile",
+    "fields": {
+      "user_name": "tabka"
+    }
+  },
+  {
+    "model": "books.book",
+    "fields": {
+      "title": "books 1",
+      "isbn": "book1235",
+      "user": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "fields": {
+      "title": "books 2",
+      "isbn": "book1234",
+      "user": 2
+    }
+  },
+  {
+    "model": "books.comment",
+    "fields": {
+      "content": "thisi is s a comment ",
+      "book": 1,
+      "user": 1
+    }
+  },
+  {
+    "model": "books.comment",
+    "fields": {
+      "content": "thisi is s a comment ",
+      "book": 1,
+      "user": 2
+    }
+  },
+  {
+    "model": "books.stars",
+    "fields": {
+      "user": 1,
+      "book": 2,
+      "stars": 3
+    }
+  }
+]

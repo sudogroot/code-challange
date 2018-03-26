@@ -1,0 +1,19 @@
+<div style="padding: 20px">
+  <div *ngIf="!comments.length">
+    <h1>There is no comments</h1>
+  </div>
+
+  <div *ngIf="comments.length">
+    <div *ngFor="let c of comments"  style="background-color: aliceblue;margin: 5px">
+      <p>user {{c.user}}</p>
+      <h3>Content : {{c.content}}</h3>
+      <p>creation date : {{ c.creation_date | date: 'yyyy-MM-dd HH:mm'}}</p>
+
+
+    </div>
+  </div>
+  <div *ngIf="cookieExists">
+    <textarea [(ngModel)]="newComment"></textarea>
+    <button mat-raised-button (click)="postComment()" [disabled]="!newComment" > post review</button>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<mat-card *ngIf="!cookieExists">
+  user name <input type="text" [(ngModel)]="userName">
+  <button (click)="submit()" mat-button> submit</button>
+</mat-card>

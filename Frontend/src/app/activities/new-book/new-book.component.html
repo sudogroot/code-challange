@@ -1,0 +1,6 @@
+<mat-card *ngIf="cookieExists">
+  Title : <input type="text" [(ngModel)]="newBook.title">
+  isbn <input type="text" [(ngModel)]="newBook.isbn">
+  <button (click)="submit()" [disabled]="!newBook.isbn || !newBook.title"  mat-button> submit</button>
+</mat-card>
+<div><h1 style="color: red" *ngIf="error">{{error}}</h1></div>

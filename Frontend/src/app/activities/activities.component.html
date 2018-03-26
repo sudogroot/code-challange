@@ -1,0 +1,12 @@
+<div *ngIf="!cookieExists"><h1>your are not identified</h1></div>
+<div *ngIf="cookieExists">
+<h1>All Books</h1>
+<div style="padding: 20px">
+  <button mat-raised-button [routerLink]="['book']">add book</button>
+  <button mat-raised-button [routerLink]="['history']">My activities</button>
+  <button mat-raised-button [routerLink]="['reviews']">reviews log</button>
+</div>
+
+<app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+<app-books (pageChange)="onPageChanged($event)" [isLoading]="isLoading" [books]="books"></app-books>
+</div>

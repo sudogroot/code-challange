@@ -1,0 +1,6 @@
+<app-user></app-user>
+
+        <h1>All Books</h1>
+        <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+        <app-books [isLoading]="isLoading" [books]="books" (pageChange)="getBooks($event)"></app-books>
+

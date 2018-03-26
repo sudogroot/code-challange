@@ -1,0 +1,7 @@
+<div> AVg stars : {{stars}}</div>
+<div *ngIf="cookieExists">
+
+  <input [(ngModel)]="newStars" type="number"  min="1" max="5">
+  <button mat-button (click)="postStars()" [disabled]="!newStars" >rate</button>
+
+</div>

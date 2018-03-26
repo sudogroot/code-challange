@@ -1,0 +1,21 @@
+<div *ngIf="!isLoading" >
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <div fxFlex.gt-sm="25" fxFlex.gt-xs="33.3333%" fxFlex="100" *ngFor="let book of books.results">
+    <mat-card>
+
+      <h1>title : {{book.title}}</h1>
+      <p>isbn : {{ book.isbn}}</p>
+      <p>user : {{ book.user}}</p>
+      <p>creation date : {{ book.creation_date | date: 'yyyy-MM-dd HH:mm'}}</p>
+
+      <button mat-raised-button color="primary" (click)="navigate($event,book.isbn)">Voir</button>
+
+
+    </mat-card>
+  </div>
+</div>
+  <button mat-raised-button [disabled]="!books.previous"  (click)="pageBook(books.previous)">Privious</button>
+  <button mat-raised-button [disabled]="!books.next" (click)="pageBook(books.next)">Next</button>
+</div>
+
+
